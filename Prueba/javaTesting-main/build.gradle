@@ -1,0 +1,22 @@
+subprojects {
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+    
+   //dependencies {
+    	// more dependencies, e.g. for JUnit...
+   // 	testImplementation 'org.hamcrest:hamcrest:2.2'
+   //}
+   testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.6.1'
+   
+}
+
+
+
+
+
+
+
+
