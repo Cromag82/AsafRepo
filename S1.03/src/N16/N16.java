@@ -14,10 +14,12 @@ public class N16 {
 	ListIterator <Integer> iteradorLista = new lista.listIterator();
 	
 	
-	while (lista.listIterator() != null ) {
+	do {  
 		lista.add(lista.size()/2, integer());
 		System.out.println(lista);
-	}
+	} while (lista.listIterator() != null ); 
+		
+	
 	
 
 	}
@@ -25,13 +27,13 @@ public class N16 {
 	public static int integer() {
 		Scanner scanner = new Scanner(System.in);
 		int entrada;
-		String stop = "";
 		do {
 		System.out.println("introduce un numero o aprete el intro para parar: ") ;
-		entrada = scanner.nextInt(); 
-		} 
-		while (stop != "");
+		entrada = scanner.nextInt();
 		return entrada;
+		} 
+		while (Integer.toString(entrada) != "");
+		
 		 }
 		
 	}

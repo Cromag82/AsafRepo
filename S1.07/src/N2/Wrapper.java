@@ -2,9 +2,10 @@ package N2;
 
 import java.io.FileInputStream;
 
-import org.json.simple.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.JSONWrappedObject;
+
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -34,7 +35,7 @@ public @interface Wrapper { //anotación propia
 		*/		
 				String introduceNombre = null,nombre = null,introduceApellido = null,apellido = null;
 				
-				JSONObject objeto = new JSONObject();
+				JSONWrappedObject objeto = new JSONWrappedObject();
 				objeto.put(introduceNombre,nombre);
 				objeto.put(introduceApellido,apellido);
 				
