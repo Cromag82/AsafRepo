@@ -12,7 +12,7 @@ public class N1Ex5 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 			
-		int[]  pepe = {1,2,3}; //creo un valor para extrear datos
+		int[] pepe = {1,2,3}; //creo un valor para extrear datos
 		int[] jose = null;
 	
 		
@@ -37,6 +37,9 @@ public class N1Ex5 {
 			jose = (int[]) arc.readObject(); //cogemos los datos del archivo y se lo añadimos a la nueva variable
 			arc.close();
 			arch.close();
+			
+			System.out.println(Arrays.toString(jose));
+				
 
 		}
 		catch (Exception e) {
