@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 
 import paq.enumerador.Oficios;
 
+import java.io.File;
+import java.util.ArrayList;
+
 import javax.persistence.*;
 
 
@@ -15,27 +18,39 @@ public class Trabajador {
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		@Column(unique=true, nullable=false)
-		private Long id; 
+		private int id; 
 		
 		private String nom;
 		private double salari;
 		private Oficios feina;
+		private File foto;
 		
-		public Trabajador(Long id, String nom, double salari, Oficios feina) {
+		
+		public Trabajador(int id, String nom, double salari, Oficios feina, File foto) {
 			
 			this.id = id;
 			this.nom = nom;
 			this.salari = salari;
 			this.feina = feina;
+			this.foto = foto;
 		}
-		public Trabajador() { //contructor por defecto IMPEPINABLE
-				}
+				
+		public File getFoto() {
+			return foto;
+		}
 
-		public Long getId() {
+		public void setFoto(File foto) {
+			this.foto = foto;
+		}
+
+		public Trabajador() { //contructor por defecto IMPEPINABLE
+		}
+		
+		public int getId() {
 			return id;
 		}
 
-		public void setId(Long id) {
+		public void setId(int id) {
 			this.id = id;
 		}
 
@@ -63,6 +78,7 @@ public class Trabajador {
 			this.feina = feina;
 		}
 		
+	
 }
 		
 		

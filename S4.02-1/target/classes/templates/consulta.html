@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>LISTADO DE TRABAJADORES</title>
+</head>
+<body>
+ <h3>Usuario: <span th:text="${usuario?.nombre}"> </span> - Password: <span th:text="${usuario?.password}"> </span></h3>
+
+<H1>LISTADO DE ACA</H1>
+    <table border=1>
+    <thead> 
+        <tr><th> ID <th> nom <th> feina <th> salari <th> foto </tr>
+    </thead>
+    <tbody>
+
+
+        <tr th:if="${trabajadores.empty}">
+                <td colspan="2"> No Books Available </td>
+            </tr>
+            <tr th:each="trabajador : ${trabajadores}">
+                <td><span th:text="${trabajador.id}"></span></td>
+                <td><span th:text="${trabajador.nom}"></span></td>
+                <td><span th:text="${trabajador.feina}"></span></td>
+                <td><span th:text="${trabajador.salari}"></span></td>
+                <td><span th:text="${trabajador.foto}"></span></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+</body>
+</html>

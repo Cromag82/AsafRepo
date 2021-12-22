@@ -4,7 +4,7 @@ public enum Oficios {
 	
 	SOLDADOR("SOLDADOR"), PROGRAMADOR("PROGRAMADOR"),ENCOFRADOR("ENCOFRADOR"),BIBLIOTECARIO("BIBLIOTECARIO");
 	
-	private String feina;
+	public String feina;
 	
 	
 	private Oficios(String feina) {
