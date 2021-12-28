@@ -12,12 +12,15 @@ import java.util.ArrayList;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -45,19 +48,34 @@ import paq.servicio.Servicio;
 	
 	@Controller
 	@RequestMapping("")
-	public class Controlador {
+	public class Controlador implements Filter{
 		
 		BdTj bdtj = new BdTj();;
 		
 		@Autowired
 		Servicio service;
 		
-		
+		@Override
+		public void init(FilterConfig filterConfig) throws ServletException {
+		}
+
+		@Override
+		public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+				throws IOException, ServletException {
+			HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+			httpServletResponse.setHeader("IT-Academy-Exercise", "Simple Service");
+			chain.doFilter(request, response);
+		}
+
+		@Override
+		public void destroy() {
+		}
 				
 		//directo al html, mirar carpeta resources/templates
 		@GetMapping("/inicio")
 		public String getLogin(Model model) {
 			model.addAttribute("titulo", "ENTRÁ ACÁ");
+			
 			return "login";
 					
 		}
@@ -123,6 +141,8 @@ import paq.servicio.Servicio;
 	    public String subirFoto (@RequestParam("foto")MultipartFile archivo) {
 			   return service.addFoto(archivo);
 		}
+
+		
 
 		
 	    
