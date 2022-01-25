@@ -1,0 +1,1 @@
+package tiendaCollares.modelo;
